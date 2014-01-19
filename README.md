@@ -1,7 +1,7 @@
 jquery.scrollToSide
 ===================
 
-__Current version: v0.0.1__
+__Current version: v0.0.2__
 
 Scrolls an element to a side of the viewport.
 
