@@ -1,5 +1,5 @@
 /*!
- * jQuery.scrollToSide v0.0.1 - Easy scroll an element to a side of viewport
+ * jQuery.scrollToSide v0.0.2 - Easy scroll an element to a side of viewport
  * By Death_Miner - MIT License
  */
 
@@ -24,7 +24,7 @@
 		var _this = this,
 			$_this = $(_this),
 			default_options = {
-				container: "body", // A selector of the viewport that scrolls
+				container: "html, body", // A selector of the viewport that scrolls
 				offset: 0,         // Offset from side of the element in px
 				animated: true,    // If it animates
 				duration: "fast"   // The animation speed, can be "fast", "normal", "slow" or a number of milliseconds
@@ -39,12 +39,12 @@
 		if(side == "top"){
 
 			// From top
-			scrollOffset = $_this.offset().top - options.offset - $(options.container).offset().top + $(options.container).scrollTop()
+			scrollOffset = $_this.offset().top - options.offset - $(options.container).offset().top + $(options.container).scrollTop();
 		}
 		else if(side == "bottom"){
 
 			// From bottom
-			$_this.offset().top + options.offset - $(options.container).offset().top + $(options.container).scrollTop() - $_this.height()
+			scrollOffset = $_this.offset().top - $(options.container).offset().top - $(options.container).height() + $_this.height() + options.offset;
 		}
 		else{
 
