@@ -22,7 +22,7 @@
 		 * @var function callback        If callback is null, create a blank function
 		 */
 		var _this = this,
-			$_this = $_this,
+			$_this = $(_this),
 			default_options = {
 				container: "body", // A selector of the viewport that scrolls
 				offset: 0,         // Offset from side of the element in px
@@ -33,43 +33,43 @@
 			callback = callback || function(){};
 
 		// Override default options by theses provided by the options argument
-        options = $.extend({}, default_options, options);
+		options = $.extend({}, default_options, options);
 
-        // Calculate pixels
-        if(side == "top"){
+		// Calculate pixels
+		if(side == "top"){
 
-        	// From top
-        	scrollOffset = $_this.offset().top - options.offset - $(options.container).offset().top + $(options.container).scrollTop()
-        }
-        else if(side == "bottom"){
+			// From top
+			scrollOffset = $_this.offset().top - options.offset - $(options.container).offset().top + $(options.container).scrollTop()
+		}
+		else if(side == "bottom"){
 
-        	// From bottom
-        	$_this.offset().top + options.offset - $(options.container).offset().top + $(options.container).scrollTop() - $_this.height()
-        }
-        else{
+			// From bottom
+			$_this.offset().top + options.offset - $(options.container).offset().top + $(options.container).scrollTop() - $_this.height()
+		}
+		else{
 
-        	// There's not a valid side, reporting error
-        	console.error("Not valid side \""+side+"\" passed to jquery.scrollToSide");
-        }
+			// There's not a valid side, reporting error
+			console.error("Not valid side \""+side+"\" passed to jquery.scrollToSide");
+		}
 
-        // Scrolling
-        if(options.animated){
+		// Scrolling
+		if(options.animated){
 
-        	// With animation
-        	$(options.container).animate({
-        		scrollTop: scrollOffset
-        	}, options.duration, callback);
-        }
-        else{
+			// With animation
+			$(options.container).animate({
+				scrollTop: scrollOffset
+			}, options.duration, callback);
+		}
+		else{
 
-        	// Without animation
-        	$(options.container).scrollTop(scrollOffset);
+			// Without animation
+			$(options.container).scrollTop(scrollOffset);
 
-        	// Execute callback since there's no animation
-        	callback();
-        }
+			// Execute callback since there's no animation
+			callback();
+		}
 
-        // Return current jQ object
-        return $_this;
+		// Return current jQ object
+		return $_this;
 	};
 })(jQuery)
