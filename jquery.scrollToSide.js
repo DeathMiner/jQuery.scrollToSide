@@ -65,7 +65,7 @@
         	// Without animation
         	$(options.container).scrollTop(scrollOffset);
 
-        	// Execute callback since ther's no animation
+        	// Execute callback since there's no animation
         	callback();
         }
 
